@@ -8,30 +8,39 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var navigationBar: UINavigationItem!
+    
     @IBOutlet weak var backKeyboard: UIButton!
-    @IBOutlet weak var backCategory: UIButton!
     @IBOutlet weak var backLabel: UIButton!
-    
     @IBOutlet weak var displayLabel: UILabel!
-    var cleanTaping = false
     
-    @IBOutlet var numberForKeyboard: [UIButton]!{ //Массив, куда добавили все аутлеты с цифрами, чтобы им всем сразу придать один вид
+    @IBOutlet var backCategory: [UIButton]!{
         didSet{
-            for button in numberForKeyboard{
-                button.layer.cornerRadius = 9
+            for button in backCategory{
+                button.layer.cornerRadius = 20
+                button.layer.shadowColor = UIColor.black.cgColor
+                button.layer.shadowOpacity = 0.2
+                button.layer.shadowOffset = .zero
+                button.layer.shadowRadius = 3
             }
         }
     }
     
+    @IBOutlet var numberForKeyboard: [UIButton]!{ //Массив, куда добавили все аутлеты с цифрами, чтобы им всем сразу придать один вид
+        didSet{
+            for button in numberForKeyboard{
+                button.layer.cornerRadius = 5
+            }
+        }
+    }
+    
+    var cleanTaping = false
+    var categoryName: String = ""
+    var displayValue: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Тени и скругления
-        backCategory.layer.cornerRadius = 20
-        backCategory.layer.shadowColor = UIColor.black.cgColor
-        backCategory.layer.shadowOpacity = 0.2
-        backCategory.layer.shadowOffset = .zero
-        backCategory.layer.shadowRadius = 3
-        
         backKeyboard.layer.cornerRadius = 20
         backKeyboard.layer.shadowColor = UIColor.black.cgColor
         backKeyboard.layer.shadowOpacity = 0.2
@@ -39,6 +48,7 @@ class ViewController: UIViewController {
         backKeyboard.layer.shadowRadius = 3
         
         backLabel.layer.cornerRadius = 15
+        
         
     }
 
@@ -62,5 +72,16 @@ class ViewController: UIViewController {
         cleanTaping = false //чтобы снова 0 не вставал в начало строки
     }
     
+    @IBAction func categoryPressed(_ sender: UIButton) {
+        categoryName = sender.currentTitle!
+        displayValue = displayLabel.text!
+        
+        displayLabel.text = "0"
+        cleanTaping = false //чтобы снова 0 не вставал в начало строки
+        
+        print(categoryName)
+        print(displayValue)
+    }
 }
+
 
