@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Z5-uD-h0S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Z5-uD-h0S">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -513,13 +514,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Мои финансы" id="WZu-QR-WsX">
-                        <barButtonItem key="leftBarButtonItem" title="123" image="gearshape" catalog="system" landscapeImage="gearshape" id="Ltm-3o-wb4">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="jbp-Tc-OCX" kind="showDetail" id="DO9-sn-kJX"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="wrench.and.screwdriver" catalog="system" id="uoh-Nx-Rkj">
+                        <barButtonItem key="rightBarButtonItem" id="uoh-Nx-Rkj">
+                            <imageReference key="image" image="wrench.and.screwdriver" catalog="system" symbolScale="medium"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="limitPressed:" destination="BYZ-38-t0r" id="cB5-8c-zli"/>
@@ -564,7 +560,7 @@
             <objects>
                 <viewController id="jbp-Tc-OCX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fk4-2B-OS3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 1" translatesAutoresizingMaskIntoConstraints="NO" id="Q1K-Eq-ArJ">
@@ -588,7 +584,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ltq-sU-g84">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="69" id="YfV-kA-s5f" customClass="CustomTableViewCell" customModule="FinancialApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="69"/>
@@ -650,6 +646,16 @@
             </objects>
             <point key="canvasLocation" x="1973.913043478261" y="845.75892857142856"/>
         </scene>
+        <!--Курс-->
+        <scene sceneID="uan-bB-D85">
+            <objects>
+                <hostingController id="ZCL-vy-34z" customClass="ContentViewVHC" customModule="FinancialApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Курс" image="dollarsign.circle" catalog="system" id="Q71-1I-xap"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a7j-Yh-pZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-257" y="858"/>
+        </scene>
         <!--История-->
         <scene sceneID="QGx-Ca-vWg">
             <objects>
@@ -685,6 +691,7 @@
                     <connections>
                         <segue destination="u8G-Hg-8qp" kind="relationship" relationship="viewControllers" id="6P2-l0-Tbq"/>
                         <segue destination="wut-UI-gZN" kind="relationship" relationship="viewControllers" id="5fe-Vc-7rw"/>
+                        <segue destination="ZCL-vy-34z" kind="relationship" relationship="viewControllers" id="Otg-c3-sRV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVB-bN-Zjx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -696,14 +703,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u8G-Hg-8qp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Финансы" image="cart.fill.badge.minus" catalog="system" id="nhC-fr-asw">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yJd-zk-AAW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -728,7 +735,7 @@
         <image name="Rectangle 1" width="100" height="12"/>
         <image name="cart.fill.badge.minus" catalog="system" width="128" height="106"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="wrench.and.screwdriver" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
